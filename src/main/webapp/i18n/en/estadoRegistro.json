@@ -1,0 +1,9 @@
+{
+  "proyectoPracticaApp": {
+    "EstadoRegistro": {
+      "null": "",
+      "ACTIVO": "ACTIVO",
+      "DESACTIVADO": "DESACTIVADO"
+    }
+  }
+}

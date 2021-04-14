@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    
+    <!--
+        Added the entity Paciente.
+    -->
+    <changeSet id="20210331052918-1" author="jhipster">
+        <createTable tableName="paciente">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="nss" type="varchar(255)" remarks="Numero de Seguro Social (NSS)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_paciente_nss" />
+            </column>
+            <column name="id_hospital" type="varchar(255)" remarks="Identificador del hospital">
+                <constraints nullable="false" />
+            </column>
+            <column name="nombre" type="varchar(255)" remarks="Nombre del paciente">
+                <constraints nullable="false" />
+            </column>
+            <column name="ap_paterno" type="varchar(255)" remarks="Apellido paterno">
+                <constraints nullable="false" />
+            </column>
+            <column name="ap_materno" type="varchar(255)" remarks="Apellido materno">
+                <constraints nullable="false" />
+            </column>
+            <column name="fecha_nac" type="varchar(255)" remarks="Fecha de nacimiento">
+                <constraints nullable="false" />
+            </column>
+            <column name="estatus" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="hospital_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20210331052918-1-relations" author="jhipster">
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20210331052918-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/paciente.csv"
+                  separator=";"
+                  tableName="paciente">
+            <column name="id" type="numeric"/>
+            <column name="nss" type="string"/>
+            <column name="id_hospital" type="string"/>
+            <column name="nombre" type="string"/>
+            <column name="ap_paterno" type="string"/>
+            <column name="ap_materno" type="string"/>
+            <column name="fecha_nac" type="string"/>
+            <column name="estatus" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,37 @@
+{
+  "proyectoPracticaApp": {
+    "paciente": {
+      "home": {
+        "title": "Pacientes",
+        "createLabel": "Crear nuevo Paciente",
+        "createOrEditLabel": "Crear o editar Paciente",
+        "notFound": "Ningún Pacientes encontrado"
+      },
+      "created": "Un nuevo Paciente ha sido creado con el identificador {{ param }}",
+      "updated": "Un Paciente ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Paciente ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Paciente {{ id }}?"
+      },
+      "detail": {
+        "title": "Paciente"
+      },
+      "nss": "Nss",
+      "idHospital": "Id Hospital",
+      "nombre": "Nombre",
+      "apPaterno": "Ap Paterno",
+      "apMaterno": "Ap Materno",
+      "fechaNac": "Fecha Nac",
+      "estatus": "Estatus",
+      "hospital": "Hospital",
+      "help": {
+        "nss": "Numero de Seguro Social (NSS)",
+        "idHospital": "Identificador del hospital",
+        "nombre": "Nombre del paciente",
+        "apPaterno": "Apellido paterno",
+        "apMaterno": "Apellido materno",
+        "fechaNac": "Fecha de nacimiento"
+      }
+    }
+  }
+}

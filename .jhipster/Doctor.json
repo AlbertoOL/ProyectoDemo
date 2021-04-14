@@ -1,0 +1,66 @@
+{
+  "name": "Doctor",
+  "fields": [
+    {
+      "fieldName": "claveRfc",
+      "fieldType": "String",
+      "javadoc": "La clave RFC del doctor",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "idHospital",
+      "fieldType": "String",
+      "javadoc": "Identificador del hospital",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "javadoc": "Nombre del doctor",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "telefono",
+      "fieldType": "String",
+      "javadoc": "Telefono",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "especialidad",
+      "fieldType": "String",
+      "javadoc": "Especialidad",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "javadoc": "Correo"
+    },
+    {
+      "fieldName": "estatus",
+      "fieldType": "EstatusRegistro",
+      "fieldValues": "ACTIVO,DESACTIVADO",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "hospital",
+      "otherEntityRelationshipName": "doctor",
+      "relationshipName": "hospital",
+      "otherEntityField": "idHospital"
+    }
+  ],
+  "changelogDate": "20210331052718",
+  "entityTableName": "doctor",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

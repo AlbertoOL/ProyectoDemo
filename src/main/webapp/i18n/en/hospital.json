@@ -1,0 +1,38 @@
+{
+  "proyectoPracticaApp": {
+    "hospital": {
+      "home": {
+        "title": "Hospitals",
+        "createLabel": "Create a new Hospital",
+        "createOrEditLabel": "Create or edit a Hospital",
+        "notFound": "No Hospitals found"
+      },
+      "created": "A new Hospital is created with identifier {{ param }}",
+      "updated": "A Hospital is updated with identifier {{ param }}",
+      "deleted": "A Hospital is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Hospital {{ id }}?"
+      },
+      "detail": {
+        "title": "Hospital"
+      },
+      "idHospital": "Id Hospital",
+      "nombre": "Nombre",
+      "numPisos": "Num Pisos",
+      "numCamas": "Num Camas",
+      "numCuartos": "Num Cuartos",
+      "fechaCreacion": "Fecha Creacion",
+      "estatus": "Estatus",
+      "doctor": "Doctor",
+      "paciente": "Paciente",
+      "help": {
+        "idHospital": "Identificador del hospital",
+        "nombre": "Nombre del Hospital",
+        "numPisos": "Numero de pisos en el hospital",
+        "numCamas": "Numero de camas en el hospital",
+        "numCuartos": "NUmero de cuartos",
+        "fechaCreacion": "Fecha en la que se cosntruyó el hospital"
+      }
+    }
+  }
+}

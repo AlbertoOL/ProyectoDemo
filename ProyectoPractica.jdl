@@ -1,0 +1,53 @@
+enum EstatusRegistro {
+	ACTIVO, DESACTIVADO
+}
+
+enum Estatus{
+	ACTIVO, CANCELADO, COMPLETADO, DESACTIVADO
+}
+
+entity Doctor {
+	claveRfc String				required unique		/**La clave RFC del doctor*/
+    idHospital String			required			/**Identificador del hospital*/
+    nombre String				required			/**Nombre del doctor*/
+    telefono String				required			/**Telefono*/
+    especialidad String			required			/**Especialidad*/
+    email String									/**Correo*/
+    estatus EstatusRegistro		required
+}
+
+entity Hospital {
+	idHospital String			required unique		/**Identificador del hospital*/
+    nombre String 				required			/**Nombre del Hospital*/
+    numPisos String				required			/**Numero de pisos en el hospital*/
+    numCamas String				required			/**Numero de camas en el hospital*/
+    numCuartos String			required			/**NUmero de cuartos*/
+    fechaCreacion String								/**Fecha en la que se cosntruyó el hospital*/
+    estatus EstatusRegistro		required			
+}
+
+entity Paciente {
+	nss String 					required unique		/**Numero de Seguro Social (NSS)*/
+	idHospital String			required			/**Identificador del hospital*/		
+    nombre String				required			/**Nombre del paciente*/
+    apPaterno String			required			/**Apellido paterno*/
+    apMaterno String			required			/**Apellido materno*/
+    fechaNac String				required			/**Fecha de nacimiento*/
+    estatus EstatusRegistro		required
+}
+
+relationship OneToMany {
+	Hospital{Doctor(idHospital)}	to Doctor{Hospital(idHospital)}
+    Hospital{Paciente(idHospital)}	to Paciente{Hospital(idHospital)}
+}
+
+paginate all with pagination 
+
+//Usar Objetos de Transferencia de Datos (DTO)
+dto * with mapstruct
+
+//Service Implement (Para encampsular)
+service all with serviceImpl
+
+filter all
+

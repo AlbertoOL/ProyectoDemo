@@ -1,0 +1,71 @@
+{
+  "name": "Hospital",
+  "fields": [
+    {
+      "fieldName": "idHospital",
+      "fieldType": "String",
+      "javadoc": "Identificador del hospital",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "javadoc": "Nombre del Hospital",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "numPisos",
+      "fieldType": "String",
+      "javadoc": "Numero de pisos en el hospital",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "numCamas",
+      "fieldType": "String",
+      "javadoc": "Numero de camas en el hospital",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "numCuartos",
+      "fieldType": "String",
+      "javadoc": "NUmero de cuartos",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "fechaCreacion",
+      "fieldType": "String",
+      "javadoc": "Fecha en la que se cosntruyó el hospital"
+    },
+    {
+      "fieldName": "estatus",
+      "fieldType": "EstatusRegistro",
+      "fieldValues": "ACTIVO,DESACTIVADO",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "doctor",
+      "otherEntityRelationshipName": "hospital",
+      "relationshipName": "doctor"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "paciente",
+      "otherEntityRelationshipName": "hospital",
+      "relationshipName": "paciente"
+    }
+  ],
+  "changelogDate": "20210331052818",
+  "entityTableName": "hospital",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

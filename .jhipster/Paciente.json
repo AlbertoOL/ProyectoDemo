@@ -1,0 +1,67 @@
+{
+  "name": "Paciente",
+  "fields": [
+    {
+      "fieldName": "nss",
+      "fieldType": "String",
+      "javadoc": "Numero de Seguro Social (NSS)",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "idHospital",
+      "fieldType": "String",
+      "javadoc": "Identificador del hospital",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "javadoc": "Nombre del paciente",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "apPaterno",
+      "fieldType": "String",
+      "javadoc": "Apellido paterno",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "apMaterno",
+      "fieldType": "String",
+      "javadoc": "Apellido materno",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "fechaNac",
+      "fieldType": "String",
+      "javadoc": "Fecha de nacimiento",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "estatus",
+      "fieldType": "EstatusRegistro",
+      "fieldValues": "ACTIVO,DESACTIVADO",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "hospital",
+      "otherEntityRelationshipName": "paciente",
+      "relationshipName": "hospital",
+      "otherEntityField": "idHospital"
+    }
+  ],
+  "changelogDate": "20210331052918",
+  "entityTableName": "paciente",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
