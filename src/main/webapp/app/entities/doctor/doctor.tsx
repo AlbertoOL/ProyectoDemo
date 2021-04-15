@@ -11,7 +11,7 @@ import { IDoctor } from 'app/shared/model/doctor.model';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
-import { Button as BS, Card, Image } from 'semantic-ui-react'
+import { Button as BS, Card, Image, Icon } from 'semantic-ui-react'
 
 export interface IDoctorProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
@@ -81,27 +81,25 @@ export const Doctor = (props: IDoctorProps) => {
         <Card.Group>
         {doctorList.map((doctor, i) => (
          
-          <Card>
+          <Card key={doctor.claveRfc}>
             <Card.Content>
-              <Image
-                floated='right'
-                size='mini'
-                src='https://react.semantic-ui.com/images/avatar/large/steve.jpg'
-              />
-              <Card.Header>Steve Sanders</Card.Header>
-              <Card.Meta>Friends of Elliot</Card.Meta>
+              <Icon name='flag'></Icon> 
+              <Card.Header>{doctor.nombre}</Card.Header>
+              <Card.Meta>{doctor.idHospital}</Card.Meta>
+              <Card.Meta>{doctor.telefono}</Card.Meta>
+              <Card.Meta>{doctor.email}</Card.Meta>
               <Card.Description>
-                Steve wants to add you to the group <strong>best friends</strong>
+                Especialidad: <strong>{doctor.especialidad}</strong>
               </Card.Description>
             </Card.Content>
             <Card.Content extra>
               <div className='ui two buttons'>
-                <Button basic color='green'>
+                <BS basic color='green'>
                   Approve
-                </Button>
-                <Button basic color='red'>
+                </BS>
+                <BS basic color='red'>
                   Decline
-                </Button>
+                </BS>
               </div>
             </Card.Content>
           </Card>
