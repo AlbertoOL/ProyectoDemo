@@ -11,7 +11,7 @@ import { IDoctor } from 'app/shared/model/doctor.model';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
-import { Button as BS, Card, Image, Icon } from 'semantic-ui-react'
+import { Button as BS, Card, Image, Icon, Header } from 'semantic-ui-react'
 
 export interface IDoctorProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
@@ -68,6 +68,11 @@ export const Doctor = (props: IDoctorProps) => {
   const { doctorList, match, loading, totalItems } = props;
   return (
     <div>
+    <Header as='h2' icon textAlign='center' inverted color='blue'>
+      <Icon name='users' circular />
+      <Header.Content>Doctores</Header.Content>
+    </Header>
+
       <h2 id="doctor-heading">
         <Translate contentKey="proyectoPracticaApp.doctor.home.title">Doctors</Translate>
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
@@ -77,19 +82,17 @@ export const Doctor = (props: IDoctorProps) => {
         </Link>
       </h2>
       <div>
-        <BS>PRUEBA</BS>
         <Card.Group>
         {doctorList.map((doctor, i) => (
          
           <Card key={doctor.claveRfc}>
             <Card.Content>
-              <Icon name='flag'></Icon> 
-              <Card.Header>{doctor.nombre}</Card.Header>
-              <Card.Meta>{doctor.idHospital}</Card.Meta>
-              <Card.Meta>{doctor.telefono}</Card.Meta>
-              <Card.Meta>{doctor.email}</Card.Meta>
+              <Icon name='flag' color='red'></Icon> 
+              <Card.Header basic color='green'>{doctor.nombre}</Card.Header>
+              <Card.Meta>Telefono: {doctor.telefono}</Card.Meta>
+              <Card.Meta>Email: {doctor.email}</Card.Meta>
               <Card.Description>
-                Especialidad: <strong>{doctor.especialidad}</strong>
+              Especialidad: <strong>{doctor.especialidad}</strong>
               </Card.Description>
             </Card.Content>
             <Card.Content extra>
